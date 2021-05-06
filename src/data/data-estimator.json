@@ -1,96 +1,118 @@
 {
-    "estimator": [
-        { 
+    "template": [
+        {
             "title": "Página",
-            "types": [
+            "value": "page"
+        },
+        {
+            "title": "Componente",
+            "value": "component"
+        }
+    ],
+    "types": [
+        {
+            "title": "Home",
+            "value": "home",
+            "parent": "page"
+        },
+        {
+            "title": "Plantilla",
+            "value": "template",
+            "parent": "component"
+        },
+        {
+            "title": "HTML + CSS",
+            "value": "html+css",
+            "parent": "component"
+        },
+        {
+            "title": "Javascript",
+            "value": "javascript",
+            "parent": "component"
+        }
+    ],
+    "complexity": [
+        {
+            "parent": "home",
+            "list": [
                 { 
-                    "title": "Home",
-                    "complexity": [
-                        { 
-                            "title": "A",
-                            "value": 6
-                        },
-                        { 
-                            "title": "B",
-                            "value": 8
-                        },
-                        { 
-                            "title": "C",
-                            "value": 16
-                        },
-                        { 
-                            "title": "D",
-                            "value": 24
-                        }
-                    ]
+                    "title": "A",
+                    "value": 6
                 },
                 { 
-                    "title": "Plantilla",
-                    "complexity": [
-                        { 
-                            "title": "A",
-                            "value": 3
-                        },
-                        { 
-                            "title": "B",
-                            "value": 4
-                        },
-                        { 
-                            "title": "C",
-                            "value": 8
-                        },
-                        { 
-                            "title": "D",
-                            "value": 16
-                        }
-                    ]
+                    "title": "B",
+                    "value": 8
+                },
+                { 
+                    "title": "C",
+                    "value": 16
+                },
+                { 
+                    "title": "D",
+                    "value": 24
                 }
             ]
         },
-        { 
-            "title": "Componente",
-            "types": [
+        {
+            "parent": "template",
+            "list": [
                 { 
-                    "title": "HTML + CSS",
-                    "complexity": [
-                        { 
-                            "title": "A",
-                            "value": 1
-                        },
-                        { 
-                            "title": "B",
-                            "value": 2
-                        },
-                        { 
-                            "title": "C",
-                            "value": 4
-                        },
-                        { 
-                            "title": "D",
-                            "value": 6
-                        }
-                    ]
+                    "title": "A",
+                    "value": 3
                 },
                 { 
-                    "title": "Javascript",
-                    "complexity": [
-                        { 
-                            "title": "A",
-                            "value": 1
-                        },
-                        { 
-                            "title": "B",
-                            "value": 2
-                        },
-                        { 
-                            "title": "C",
-                            "value": 5
-                        },
-                        { 
-                            "title": "D",
-                            "value": 8
-                        }
-                    ]
+                    "title": "B",
+                    "value": 4
+                },
+                { 
+                    "title": "C",
+                    "value": 8
+                },
+                { 
+                    "title": "D",
+                    "value": 16
+                }
+            ]
+        },
+        {
+            "parent": "html+css",
+            "list": [
+                { 
+                    "title": "A",
+                    "value": 1
+                },
+                { 
+                    "title": "B",
+                    "value": 2
+                },
+                { 
+                    "title": "C",
+                    "value": 4
+                },
+                { 
+                    "title": "D",
+                    "value": 6
+                }
+            ]
+        },
+        {
+            "parent": "javascript",
+            "list": [
+                { 
+                    "title": "A",
+                    "value": 1
+                },
+                { 
+                    "title": "B",
+                    "value": 2
+                },
+                { 
+                    "title": "C",
+                    "value": 5
+                },
+                { 
+                    "title": "D",
+                    "value": 8
                 }
             ]
         }
