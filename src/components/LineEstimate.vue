@@ -2,15 +2,15 @@
   <fieldset class="form-fielset" v-bind:id="'estimate-base-'+id">
     <input class="inputDescription" type="text">
     <div class="select-group">
-      <select name="template" id="SelTemplate" @change="onChangeTemplate($event)">
+      <select name="template" v-bind:id="'SelTemplate'+id" @change="onChangeTemplate($event)">
         <option value="">Seleccione un Template</option>
         <option v-bind:value="esti.value" v-for="esti in item.estimatorSel" v-bind:key="esti.id">{{esti.title}}</option>
       </select>
-      <select name="type" id="SelType" @change="onChangeType($event)">
+      <select name="type" v-bind:id="'SelType'+id" @change="onChangeType($event)">
         <option value="">Seleccione un Tipo</option>
         <option v-bind:class="type.parent !== item.classTemplateSelected ? 'hide' : ''" v-bind:value="type.value" v-bind:data-parent="type.parent" v-for="type in item.typesSel" v-bind:key="type.id">{{type.title}}</option>
       </select>
-      <select name="complexity" id="SelComplexity" @change="onChangeComplexity($event)">
+      <select name="complexity" v-bind:id="'SelComplexity'+id" @change="onChangeComplexity($event)">
         <option value="">Seleccione un Complejidad</option>
         <option v-bind:class="comp.parent !== item.classComplexitySelected ? 'hide' : ''" v-bind:value="comp.value" v-for="comp in item.complexitySel" v-bind:data-parent="comp.parent" v-bind:key="comp.id">{{comp.title}}</option>
       </select>
@@ -108,6 +108,7 @@ select {
   border-left: 0;
   padding: 0 12px;
   width: 50px;
+  text-align: center;
 }
 
 button {
