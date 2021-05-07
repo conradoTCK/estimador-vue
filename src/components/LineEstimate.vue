@@ -1,5 +1,6 @@
 <template>
-  <fieldset v-bind:id="'estimate-base-'+id">
+  <fieldset class="form-fielset" v-bind:id="'estimate-base-'+id">
+    <input class="inputDescription" type="text">
     <div class="select-group">
       <select name="template" id="SelTemplate" @change="onChangeTemplate($event)">
         <option value="">Seleccione un Template</option>
@@ -15,7 +16,7 @@
       </select>
     </div>
     <input class="inputEstimateLine" type="text" v-bind:value="item.valueIntput">
-    <button type="button" @click="onClickRemoveline">Remover linea</button>
+    <button class="btn-remove" type="button" @click="onClickRemoveline">Remover linea</button>
   </fieldset>
 </template>
 
@@ -73,22 +74,47 @@ fieldset {
   width: 100%;
   display: flex;
   border: 0;;
+  padding: 0;
+  
+}
+
+.form-fielset {
+  border-left: 1px solid;
+  margin-top: -1px;
 }
 
 select {
-  width: 200px;
   height: 40px;
   border-radius: 0;
-  border-left: 0;
-  padding: 0 6px;
-}
-
-form select:first-child {
-    border-left: 1px solid;
+  border: 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 0 12px;
 }
 
 .select-group {
-  min-width: 600px;
   display: inline-block;
+}
+
+.inputDescription {
+  border: 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 0 12px;
+}
+
+.inputEstimateLine {
+  border: 1px solid;
+  border-left: 0;
+  padding: 0 12px;
+  width: 50px;
+}
+
+button {
+  border: 1px solid;
+}
+
+.btn-remove {
+  border-left: 0;
 }
 </style>

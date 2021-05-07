@@ -1,20 +1,24 @@
 <template>
-  <form id="estimate-form" action="">
-    <LineEstimate 
-      v-for="item in listItems"
-      v-bind:key="item.id"
-      v-bind:id="item.id"
-      v-bind:item="item"
-      v-bind:classTemplateSelected="classTemplateSelected"
-      v-bind:classTypeSelected="classTypeSelected"
-      v-bind:classComplexitySelected="classComplexitySelected"
-      @onChangeTemplate="handleChangeTemplate"
-      @onChangeType="handleChangeType"
-      @onChangeComplexity="handleChangeComplexity"
-    />
-  </form>
+  <section class="list-group">
+    <form id="estimate-form" action="">
+      <LineEstimate 
+        v-for="item in listItems"
+        v-bind:key="item.id"
+        v-bind:id="item.id"
+        v-bind:item="item"
+        v-bind:classTemplateSelected="classTemplateSelected"
+        v-bind:classTypeSelected="classTypeSelected"
+        v-bind:classComplexitySelected="classComplexitySelected"
+        @onChangeTemplate="handleChangeTemplate"
+        @onChangeType="handleChangeType"
+        @onChangeComplexity="handleChangeComplexity"
+      />
+    </form>
+  </section>
 
-  <button @click="onClickNewline($event)">Nueva linea</button>
+  <fieldset class="button-group">
+    <button @click="onClickNewline($event)">Nueva linea</button>
+  </fieldset>
 
   <Total 
     v-bind:total="total"
@@ -174,5 +178,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.list-group {
+  margin: 0 0 120px 0;
+}
 
+.button-group {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #ffffff;
+  width: 200px;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 8px 0 0;
+}
+
+.button-group button {
+  height: 40px;
+  border-radius: 0;
+}
 </style>
