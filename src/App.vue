@@ -14,6 +14,8 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 *:focus {
   outline: 0;
   box-shadow: none;

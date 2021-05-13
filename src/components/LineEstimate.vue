@@ -3,15 +3,23 @@
     <input class="inputDescription" type="text">
     <div class="select-group">
       <select name="template" v-bind:id="'SelTemplate'+id" @change="onChangeTemplate($event)">
-        <option value="">Seleccione un Template</option>
+        <option value="">Template</option>
         <option v-bind:value="esti.value" v-for="esti in item.estimatorSel" v-bind:key="esti.id">{{esti.title}}</option>
       </select>
       <select name="type" v-bind:id="'SelType'+id" @change="onChangeType($event)">
-        <option value="">Seleccione un Tipo</option>
-        <option v-bind:class="type.parent !== item.classTemplateSelected ? 'hide' : ''" v-bind:value="type.value" v-bind:data-parent="type.parent" v-for="type in item.typesSel" v-bind:key="type.id">{{type.title}}</option>
+        <option value="">Tipo</option>
+        <option 
+          v-bind:class="type.parent !== item.classTemplateSelected ? 'hide' : ''"  
+          v-bind:disabled="type.parent !== item.classTemplateSelected"
+          v-bind:value="type.value" 
+          v-bind:data-parent="type.parent" 
+          v-for="type in item.typesSel" 
+          v-bind:key="type.id">
+            {{type.title}}
+          </option>
       </select>
       <select name="complexity" v-bind:id="'SelComplexity'+id" @change="onChangeComplexity($event)">
-        <option value="">Seleccione un Complejidad</option>
+        <option value="">Complejidad</option>
         <option v-bind:class="comp.parent !== item.classComplexitySelected ? 'hide' : ''" v-bind:value="comp.value" v-for="comp in item.complexitySel" v-bind:data-parent="comp.parent" v-bind:key="comp.id">{{comp.title}}</option>
       </select>
     </div>
@@ -21,6 +29,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'LineEstimate',
   props: {
@@ -28,8 +37,14 @@ export default {
     valueIntput: String,
     id: Number
   },
-
+  mounted: function(){
+    this.initSelect();
+  },
   methods: {
+    initSelect() {
+      
+    },
+
     onChangeTemplate(e) {
       this.$emit("onChangeTemplate", {
         e: e,
@@ -67,7 +82,7 @@ export default {
 
 
 form {
-
+  padding: 8px 0 0 8px;
 }
 
 fieldset {
@@ -75,12 +90,11 @@ fieldset {
   display: flex;
   border: 0;;
   padding: 0;
-  
 }
 
 .form-fielset {
-  border-left: 1px solid;
   margin-top: -1px;
+  padding: 0;
 }
 
 select {
@@ -93,14 +107,21 @@ select {
 }
 
 .select-group {
-  display: inline-block;
+  display: flex;
 }
 
-.inputDescription {
-  border: 0;
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+.select-wrapper {
+  min-width: 200px;
+}
+
+.select-wrapper input.select-dropdown {
+  padding: 0 20px;
+}
+
+.inputDescription,
+input[type=text]:not(.browser-default).inputDescription {
   padding: 0 12px;
+  width: auto;
 }
 
 .inputEstimateLine {
